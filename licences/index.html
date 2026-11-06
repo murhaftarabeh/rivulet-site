@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rivulet licences</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header><a href="../">Rivulet</a> · <a href="../privacy/">Privacy</a> · <a href="../privacy/ar/">الخصوصية</a> · <a href="./">Licences</a> · <a href="../releases/">Releases</a></header>
+<main>
+<h1>Licences and open-source notices</h1>
+<p>Rivulet ships with no content. It uses the open-source software below.</p>
+
+<h2>FFmpeg (LGPL v2.1)</h2>
+<p>Rivulet uses three separately replaceable shared libraries built from FFmpeg for AC-3, E-AC-3 and DTS audio decoding:
+<code>libavcodec</code>, <code>libavutil</code> and <code>libswresample</code>, linked dynamically. The complete corresponding source,
+our patch and the build script for each release are in that release's source-offer bundle, listed on the
+<a href="../releases/">releases page</a>. The licence text is <a href="LICENSE.LGPLv2.1">LICENSE.LGPLv2.1</a>.</p>
+<p>The in-app notice, verbatim (English):</p>
+<pre>Uses FFmpeg (LGPL v2.1). arm64-v8a built with: --libdir=android-libs/arm64-v8a --arch=aarch64 --cpu=armv8-a --cross-prefix=aarch64-linux-android21- --nm=llvm-nm --ar=llvm-ar --ranlib=llvm-ranlib --strip=llvm-strip --extra-ldflags='-Wl,--build-id=none -Wl,-z,max-page-size=16384' --target-os=android --enable-shared --disable-static --disable-doc --disable-programs --disable-everything --disable-avdevice --disable-avformat --disable-swscale --disable-postproc --disable-avfilter --disable-symver --enable-swresample --extra-ldexeflags=-pie --disable-v4l2-m2m --disable-vulkan --enable-decoder=ac3 --enable-decoder=eac3 --enable-decoder=dca; armeabi-v7a and x86_64 configure lines: ffmpeg-configure.txt; source: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz and https://github.com/androidx/media@839c4a90f2ab36e48be73e1b5e907f3283dce72e (libraries/decoder_ffmpeg, tag 1.6.1).</pre>
+<p lang="ar" dir="rtl">الإشعار الموجود في التطبيق، حرفيًا (العربية):</p>
+<pre lang="ar" dir="rtl">يستخدم التطبيق FFmpeg (رخصة LGPL v2.1)، بُني إصدار arm64-v8a باستخدام: --libdir=android-libs/arm64-v8a --arch=aarch64 --cpu=armv8-a --cross-prefix=aarch64-linux-android21- --nm=llvm-nm --ar=llvm-ar --ranlib=llvm-ranlib --strip=llvm-strip --extra-ldflags='-Wl,--build-id=none -Wl,-z,max-page-size=16384' --target-os=android --enable-shared --disable-static --disable-doc --disable-programs --disable-everything --disable-avdevice --disable-avformat --disable-swscale --disable-postproc --disable-avfilter --disable-symver --enable-swresample --extra-ldexeflags=-pie --disable-v4l2-m2m --disable-vulkan --enable-decoder=ac3 --enable-decoder=eac3 --enable-decoder=dca؛ أسطر التهيئة لإصداري armeabi-v7a وx86_64: ffmpeg-configure.txt؛ المصدر: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz و https://github.com/androidx/media@839c4a90f2ab36e48be73e1b5e907f3283dce72e (libraries/decoder_ffmpeg، الوسم 1.6.1).</pre>
+
+<h2>Fonts (SIL Open Font License 1.1)</h2>
+<p>Rivulet bundles three typefaces, each licensed under the <a href="OFL.txt">SIL Open Font License, Version 1.1</a>. They are used unmodified and
+are embedded in the app and in the brand graphics (the wordmark is converted to outlines).</p>
+<ul>
+<li>Alexandria (variable weight), Copyright 2022 The Alexandria Project Authors (<a href="https://github.com/Gue3bara/Alexandria">github.com/Gue3bara/Alexandria</a>).</li>
+<li>IBM Plex Sans (Regular, Medium, SemiBold), Copyright &copy; 2017 IBM Corp. with Reserved Font Name "Plex".</li>
+<li>IBM Plex Sans Arabic (Regular, Medium, SemiBold), Copyright &copy; 2017 IBM Corp. with Reserved Font Name "Plex".</li>
+</ul>
+<h2 lang="ar" dir="rtl">الخطوط (رخصة الخطوط المفتوحة SIL الإصدار 1.1)</h2>
+<p lang="ar" dir="rtl">يضمّ التطبيق ثلاثة خطوط: Alexandria وIBM Plex Sans وIBM Plex Sans Arabic، وكلها مرخّصة بموجب <a href="OFL.txt">رخصة الخطوط المفتوحة SIL الإصدار 1.1</a>. تُستخدم دون تعديل.</p>
+
+<h2>AndroidX Media3 and other Apache-2.0 components</h2>
+<p>Rivulet's playback uses AndroidX Media3 (ExoPlayer), and the app is built on other AndroidX, Kotlin, Dagger, Coil and OkHttp
+libraries, each licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0.txt">Apache License, Version 2.0</a>. They are used unmodified, except for the FFmpeg decoder
+extension patch described in the source-offer bundle.</p>
+</main>
+</body>
+</html>
