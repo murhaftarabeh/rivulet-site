@@ -11,15 +11,29 @@
 <main>
 <h1>Releases</h1>
 <p>One block per tag, added by the release checklist. Every block lists the version, the date, the SHA-256 of each store
-artifact and the source-offer bundle for that version. No release has been published yet.</p>
+artifact and the source-offer bundle for that version. The newest release is first.</p>
 
-<h2>Template for one release</h2>
+<h2>v1.4.0</h2>
 <table>
-<tr><th>Version</th><td>(tag, for example v1.0.0)</td></tr>
-<tr><th>Date</th><td>(UTC date of the tag)</td></tr>
-<tr><th>Store artifacts</th><td>(file name and SHA-256 of each AAB and APK)</td></tr>
-<tr><th>Source offer</th><td>(link to the source-offer bundle asset of that release: FFmpeg tarball, patches, build script, configure lines, checksums)</td></tr>
+<tr><th>Version</th><td>v1.4.0 (version code 10400)</td></tr>
+<tr><th>Date</th><td>2026-11-12 (UTC)</td></tr>
+<tr><th>Store artifacts</th><td><code>app-mobile-release.aab</code><br><code>80d88eca0a92ca4919b83dbc1f0ff17b7ff223bbfaf3cc8805c669798e80e052</code><br>
+<code>app-tv-release.aab</code><br><code>138a12965eff2767d5e7c1e0826732b45d793354fd76653cb347aa32858112b5</code><br>
+<code>app-tv-release.apk</code><br><code>7050792d97b46a9e72c76ae64b54607c5edcf1a575fef91b285eaf210a203e5d</code></td></tr>
+<tr><th>Source offer</th><td><a href="https://github.com/murhaftarabeh/rivulet-site/releases/download/v1.4.0/rivulet-source-offer-v1.4.0.tar.gz"><code>rivulet-source-offer-v1.4.0.tar.gz</code></a>
+(FFmpeg tarball, patches, build script, configure lines, checksums)<br>SHA-256 <code>64829324764c7773fc4be54a917917e73fec402c3a6a7fcd6d05dfc6beec300f</code><br>
+<a href="https://github.com/murhaftarabeh/rivulet-site/releases/tag/v1.4.0">Release page of this source offer</a></td></tr>
 </table>
+
+<!-- One release block, to copy for the next tag (newest first):
+<h2>(tag, for example v1.0.0)</h2>
+<table>
+<tr><th>Version</th><td>(tag and version code)</td></tr>
+<tr><th>Date</th><td>(UTC date of the tag)</td></tr>
+<tr><th>Store artifacts</th><td>(file name and SHA-256 of each AAB and APK, from SHA256SUMS-signed.txt)</td></tr>
+<tr><th>Source offer</th><td>(link to the source-offer bundle asset of that release: FFmpeg tarball, patches, build script, configure lines, checksums; and its SHA-256)</td></tr>
+</table>
+-->
 
 <h2>FFmpeg source used by every release so far</h2>
 <table>
