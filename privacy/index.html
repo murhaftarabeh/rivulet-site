@@ -10,9 +10,9 @@
 <header><a href="../">Rivulet</a> · <a href="../privacy/">Privacy</a> · <a href="../privacy/ar/">الخصوصية</a> · <a href="../licences/">Licences</a> · <a href="../releases/">Releases</a></header>
 <main>
 <h1 id="rivulet-privacy-policy">Rivulet privacy policy</h1>
-<p>Effective 2026-11-13 — applies to version 1.4.0.</p>
-<p>Applies to Rivulet for phones (<code>app.rivulet</code>) and Rivulet
-for TV (<code>app.rivulet.tv</code>), from that version until replaced.
+<p>Effective 2026-11-14 — applies to version 1.5.0.</p>
+<p>Applies to Rivulet for phones and Rivulet for TV, one app
+(<code>app.rivulet</code>) on both, from that version until replaced.
 Each release publishes its own copy of this page; earlier versions stay
 available under <code>/privacy/</code> followed by the version
 number.</p>
@@ -51,7 +51,9 @@ address you entered, and to the stream and artwork addresses that your
 provider's own responses name. It has no analytics, no crash reporting
 and no account of its own, and nothing is sent to us. On the phone app,
 Google's advertising component also talks to Google (section 4); the TV
-app contains no advertising component.</p>
+app contains no advertising component. While you cast, the phone app
+also talks to the TV you chose, on your home Wi-Fi (see the casting
+paragraph below).</p>
 
 <p>There is one further request you should know about. When you play a
 live stream in the DASH format, Rivulet can ask a public time server,
@@ -62,14 +64,49 @@ provider or viewing details. Like any internet request, it is visible to
 the operator of that time server together with your device's network
 address.</p>
 
+<p>Casting to a TV, on the phone app. When you cast, your phone itself
+sends the video to the TV. For as long as the cast lasts, the phone runs
+a small web server on the Wi-Fi address it has on your home network, and
+the TV fetches the video from it. The TV never receives your provider's
+address or your login: the stream address and your login stay on your
+phone, which is the only device that talks to your provider during a
+cast. The TV does receive the title of what you play (and, on a Cast TV,
+a short second line of text) and the phone's address on your home
+network, but nothing else of yours. The server answers only the TV you
+chose, and only at a long random address made for that one cast. While a
+cast lasts, the phone keeps its processor and its Wi-Fi connection awake
+so the video keeps flowing, and shows a "Casting to" notification; on
+the lock screen that notification shows the TV, the title and the
+playback controls. The server stops, and the notification goes away,
+when the cast ends, when you tap Stop casting, or when the Wi-Fi
+connection is lost. It reaches only devices on that Wi-Fi network, and
+nothing about it is sent to us. One risk remains, and we state it
+plainly: this traffic on your Wi-Fi is plain HTTP, not encrypted.
+Someone else on the same Wi-Fi network who can capture network traffic
+could see the video and the random address of that cast, and so can
+other devices on the network that can control the same TV, such as other
+Cast apps, without capturing anything; but never your login or password,
+because those never leave your phone. To find TVs, Rivulet asks your
+local network for Cast devices and for DLNA (UPnP) devices by sending a
+discovery message to your local network. It is meant for that network
+only, though in some homes it may cross one router. Casting is optional
+and uses Google Play services' Cast component for Cast devices (section
+8).</p>
+
 <p>Permissions: Rivulet asks for Internet access, network-state access,
 and the keep-awake permission (WAKE_LOCK) that WorkManager uses so a
-refresh is not cut short. On the phone it also has the advertising-ID
-permission that Google's advertising component declares; you can reset
-or delete the advertising ID in Android settings. On TV it also asks,
-when you first open Local media, for permission to read videos on the TV
-and its drives. It does not ask for location, microphone, camera or
-contacts, and it asks for no other access to your files.</p>
+refresh is not cut short and that, on the phone, keeps it serving the
+video while you cast. On the phone it also has the permissions casting
+needs: the foreground-service permission (FOREGROUND_SERVICE) with its
+media-playback type, so a cast keeps running, with a notification, while
+the screen is off; permission to read the Wi-Fi state; and the Wi-Fi
+multicast permission, used to find DLNA TVs. On the phone it also has
+the advertising-ID permission that Google's advertising component
+declares; you can reset or delete the advertising ID in Android
+settings. On TV it also asks, when you first open Local media, for
+permission to read videos on the TV and its drives. It does not ask for
+location, microphone, camera or contacts, and it asks for no other
+access to your files.</p>
 
 <p>Rivulet's own code writes nothing to the device log in release
 builds, and your login never appears in any log.</p>
@@ -144,12 +181,14 @@ account.</p>
 
 <p>On our side there is one: Google, through the phone app's advertising
 component (section 4) and, if you turn casting on, Google Play services'
-Cast component. The TV app has no advertising component. Your provider
-is a party you chose; its own policy governs what it sees, which
-includes your login and the streams you request. Traffic to your
-provider may be unencrypted (HTTP) if your provider only offers HTTP.
-Cloudflare, which hosts this page, keeps its own server logs under its
-own policy.</p>
+Cast component. The TV app has no advertising component. The TV or DLNA
+device you pick to cast to is a party you chose, on your own Wi-Fi: it
+receives the video and its title from your phone, plus the phone's
+address on that network, and nothing else of yours. Your provider is a
+party you chose; its own policy governs what it sees, which includes
+your login and the streams you request. Traffic to your provider may be
+unencrypted (HTTP) if your provider only offers HTTP. Cloudflare, which
+hosts this page, keeps its own server logs under its own policy.</p>
 <h2 id="9-open-source-software">9. Open-source software</h2>
 
 <p>Rivulet uses FFmpeg (LGPL v2.1) for AC-3, E-AC-3 and DTS audio
